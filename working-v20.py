@@ -24,13 +24,13 @@ parser.add_argument("--no-joining", action="store_true", help="Disable auto-join
 parser.add_argument("--nsfw", action="store_true", help="Enable NSFW posts (off by default)")
 args = parser.parse_args()
 
-# Reddit setup with your credentials
+# Reddit setup with your credentials (Must be Changed)
 reddit = praw.Reddit(
-    client_id="83LypQ5gk0QBMW2TC6nDWw",
-    client_secret="zWUo7zy_rp79dI3119iCVwxpDksUew",
-    user_agent="FBRedditBot/1.0 (by /u/Deablo_Demon_Lord)",
-    username="Deablo_Demon_Lord",
-    password="rNUELkUnb@EQ.i6"
+    client_id="Your-Clint-ID",
+    client_secret="Your-Secret-ID",
+    user_agent="FBRedditBot/1.0 (by /u/Your-User-Name-HERE)",
+    username="Your-User-name",
+    password="your-reddit-password"
 )
 
 # Test Reddit API connection to ensure credentials are valid
@@ -44,8 +44,8 @@ except Exception as e:
     exit(1)
 
 # Facebook setup with your Page ID and Access Token
-PAGE_ACCESS_TOKEN = "EAANavxtZAHIoBO0NnNOQl8LTiG9gwjPsft1ESHEMmA07flehz7ZAcy8U8BXSQLpyKT9k9psQ34KAS7D7ng62cOL9p31hPEZBoNXZAdmtZA4PepESfkaJOFaKJQqMoc0J1ZC4CzKotvL5C2JFrDaeTc03mZAZAiDezX1AvLliZBg27jh8EQACHE3O9fNUeVT1ZBhICZCbrjC6L7QX85q4TV0"
-PAGE_ID = "563175166885757"
+PAGE_ACCESS_TOKEN = "Your-Page-Access-Token-Here"
+PAGE_ID = "Your-Targeted-Page-ID"
 
 # Directory to save downloaded media
 MEDIA_DIR = "media"
@@ -69,26 +69,16 @@ posts_in_batch = 0
 download_failures = 0
 MAX_FAILURES_BEFORE_NOTIFICATION = 5
 
-# List of subreddits to fetch posts from (if not disabled)
+# List of subreddits to fetch posts from (if not disabled)  # add some more if want 
 SUBREDDITS = [
-    "anime", "anime_irl", "bleach", "haikyuu", "Gintama", "animeskirts", "SSSSGRIDMAN",
-    "KaijuNo8", "StardustCrusaders", "NeonGenesisEvangelion", "sololeveling", "yugioh",
-    "SaintSeiya", "Komi_san", "Naruto", "Hololive", "manga", "JuJutsuKaisen", "HISHAMtalksANIME",
-    "MyAnimeList", "Lumine_Mains", "KimetsuNoYaiba", "evangelion", "LoveLive", "Horikitafanclub",
-    "animecuddling", "ShingekiNoKyojin", "vagabondmanga", "Joshi_Kosei", "bokunokokoro",
-    "ShikimoriIsntJustCute", "jigokuraku", "winterwaifus", "NilouMains", "Anime_Romance",
-    "Genshin_Wallpaper", "Dhaka", "Moescape", "KaMikoto", "SpyXFamily", "AnimeBurgers",
-    "DungeonMeshi", "Animesuggest", "Animemes", "overlord", "EightySix", "SoloLevelingMemes",
-    "Frieren", "LightNovels", "attackontitan", "CultofYamai", "Re_Zero", "CodeGeass",
-    "OtonariNoTenshiSama", "sixfacedworld", "AquaSama", "VinlandSaga", "OshiNoKoMemes",
-    "TenseiSlime", "Tomozaki_kun", "toarumajutsunoindex", "Rakudai", "BlueBox", "Berserk"
+    "anime", "news"
 ]
 
 # Hashtags to append to every post (unless --no-hashtags is used)
-HASHTAGS = " #anime #animes #animelover #animefan #animeart #animegirls #animeindonesia #animeedits #animelove #animememes #animegirl #animefanart #animeworld #animesbrasil #animescene #animeloversfollowme #animejapan #animeedit #animegirlkawaii #animegirlsdaily #Anime2025 #newanime"
+HASHTAGS = " #top #trending"
 
-# Keywords to identify anime-related subreddits
-ANIME_KEYWORDS = ["anime", "manga", "kawaii", "otaku", "waifu", "senpai", "shonen", "shoujo", "mecha", "isekai"]
+# Keywords to identify anime-related subreddits  # Enable if you want 
+# ANIME_KEYWORDS = ["anime"]
 
 # Sanitize filename for local saving
 def sanitize_filename(title, max_length=100):
